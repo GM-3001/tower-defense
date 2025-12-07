@@ -1,0 +1,43 @@
+:root{
+  --bg:#070809; --panel:#0f1417; --muted:#9fb0c3; --accent:#5ad1ff;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter, Arial, sans-serif;background:var(--bg);color:#e6eef6;overflow:hidden}
+canvas#gameCanvas{position:fixed;left:0;top:0;width:100vw;height:100vh;background:linear-gradient(180deg,#071018,#071218);display:block}
+
+/* overlay/menu */
+.overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:50}
+.menuCard{background:rgba(0,0,0,0.55);padding:28px;border-radius:12px;text-align:center;backdrop-filter:blur(6px);box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+.title{font-size:40px;font-weight:800;letter-spacing:2px;margin-bottom:8px}
+.subtitle{color:var(--muted);margin-bottom:18px}
+.menuButtons{display:flex;gap:12px;justify-content:center;margin-bottom:12px}
+.btn{padding:12px 20px;border-radius:10px;border:2px solid rgba(255,255,255,0.04);background:#152026;color:#e6eef6;cursor:pointer;font-weight:700}
+.btn.alt{background:#16323a}
+.modeMenu{display:flex;gap:8px;margin-top:12px}
+
+/* HUD */
+.hud{position:fixed;top:12px;left:12px;display:flex;justify-content:space-between;align-items:center;gap:12px;z-index:40}
+.hud .small{margin-left:8px}
+.panel{position:fixed;right:12px;top:12px;width:260px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:10px;z-index:40}
+.panelTitle{font-weight:700;margin-bottom:8px}
+#towerList{display:flex;flex-direction:column;gap:8px}
+.towerBtn{display:flex;align-items:center;justify-content:space-between;padding:8px;border-radius:8px;background:rgba(255,255,255,0.02);cursor:pointer}
+.towerBtn.selected{outline:2px solid rgba(90,209,255,0.12)}
+.controlsRow{display:flex;gap:8px;margin-top:8px}
+.small{padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);border:none;color:#e6eef6;cursor:pointer}
+
+/* editor panel smaller */
+#editorPanel{left:12px;top:12px;width:320px}
+
+/* hints / mobile */
+.hint{color:var(--muted);font-size:13px;margin-top:8px}
+.mobile{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;display:flex;gap:12px;z-index:40}
+.mc{width:54px;height:54px;border-radius:27px;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;font-weight:700;cursor:pointer}
+.hidden{display:none}
+
+/* small responsive */
+@media (max-width:880px){
+  .panel{width:200px}
+  #editorPanel{width:220px}
+  .title{font-size:28px}
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Tower Defence — Rebuilt</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- START MENU -->
+  <div id="menuScreen" class="overlay">
+    <div class="menuCard">
+      <div class="title">TOWER DEFENCE</div>
+      <div class="subtitle">Get Ready!</div>
+
+      <div class="menuButtons">
+        <button id="playBtn" class="btn">Play</button>
+        <button id="editorBtn" class="btn alt">Level Editor</button>
+      </div>
+
+      <div id="playModeMenu" class="modeMenu hidden">
+        <button id="normalMode" class="btn">Normal</button>
+        <button id="endlessMode" class="btn alt">Endless</button>
+        <button id="cancelMode" class="btn">Cancel</button>
+      </div>
+
+      <div class="hint">Hotkeys: 1 Basic • 2 Sniper • 3 Rapid • 4 Slow. Double-click to place. Right-click / long-press to sell.</div>
+    </div>
+  </div>
+
+  <!-- CANVAS (fullscreen) -->
+  <canvas id="gameCanvas"></canvas>
+
+  <!-- HUD (HTML overlay) -->
+  <div id="hud" class="hud hidden">
+    <div id="hudLeft">
+      <div id="money">Money: $0</div>
+      <div id="lives">Lives: 0</div>
+      <div id="wave">Wave: 0</div>
+      <div id="modeLabel"></div>
+    </div>
+    <div id="hudRight">
+      <button id="pauseBtn" class="small">Pause</button>
+      <button id="menuBackBtn" class="small">Menu</button>
+    </div>
+  </div>
+
+  <!-- Tower side panel -->
+  <div id="towerPanel" class="panel hidden">
+    <div class="panelTitle">Towers</div>
+    <div id="towerList"></div>
+    <div class="panelTitle">Selected</div>
+    <div id="selectedInfo">None</div>
+    <div class="controlsRow">
+      <button id="upgradeBtn" class="small">Upgrade</button>
+      <button id="sellBtn" class="small">Sell</button>
+    </div>
+    <div id="upgradeHint" class="hint"></div>
+  </div>
+
+  <!-- Editor panel -->
+  <div id="editorPanel" class="panel hidden">
+    <div class="panelTitle">Level Editor</div>
+    <div class="controlsRow">
+      <button id="toggleDraw" class="small">Toggle Draw</button>
+      <button id="resetPath" class="small">Reset Path</button>
+      <button id="savePath" class="small">Save Path</button>
+    </div>
+    <div class="controlsRow" style="margin-top:8px;">
+      <select id="enemySelect">
+        <option value="slow">slow</option><option value="fast">fast</option><option value="tank">tank</option><option value="swarm">swarm</option><option value="boss">boss</option>
+      </select>
+      <button id="addToWave" class="small">Add to Wave</button>
+      <button id="saveWave" class="small">Save Wave</button>
+    </div>
+    <textarea id="wavePreview" placeholder="wave preview (comma separated)" rows="2"></textarea>
+    <div class="hint">Draw a path (click/tap to add points). Save path then Play.</div>
+  </div>
+
+  <!-- Mobile quick buttons -->
+  <div id="mobileControls" class="mobile hidden">
+    <div class="mc" id="mc1">1</div>
+    <div class="mc" id="mc2">2</div>
+    <div class="mc" id="mc3">3</div>
+  </div>
+
+  <script src="engine.js"></script>
+  <script src="game.js"></script>
+  <script src="editor.js"></script>
+  <script src="ui.js"></script>
+</body>
+</html>
