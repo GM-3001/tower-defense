@@ -25,14 +25,14 @@ canvas {
   margin: 18px auto;
   border-radius: 10px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-  background: linear-gradient(180deg, #081018 0%, #071018 100%);
+  background: linear-gradient(180deg, #071018 0%, #041016 100%);
   width: 88vw;
   height: 78vh;
   max-width: 1400px;
   max-height: 820px
 }
 
-#hud {
+#topbar {
   position: fixed;
   top: 12px;
   left: 50%;
@@ -45,7 +45,8 @@ canvas {
   padding: 8px;
   border-radius: 10px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6)
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  z-index: 40
 }
 
 .left,
@@ -89,7 +90,7 @@ canvas {
 }
 
 .tower-select {
-  width: 92px;
+  width: 84px;
   text-align: center
 }
 
@@ -116,6 +117,11 @@ canvas {
   align-items: center
 }
 
+.menu-row {
+  display: flex;
+  gap: 8px
+}
+
 .muted {
   color: var(--muted);
   font-size: 13px
@@ -133,11 +139,12 @@ footer {
   position: fixed;
   right: 18px;
   bottom: 18px;
-  width: 220px;
+  width: 240px;
   padding: 12px;
   border-radius: 10px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6)
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  z-index: 45
 }
 
 .hidden {
@@ -148,4 +155,9 @@ footer {
   display: flex;
   gap: 8px;
   margin-top: 8px
+}
+
+.selected {
+  outline: 3px solid rgba(255, 209, 102, 0.12);
+  background: linear-gradient(90deg, rgba(255, 209, 102, 0.04), transparent)
 }
