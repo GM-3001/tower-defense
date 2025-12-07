@@ -4,21 +4,25 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Polished Tower Defense</title>
+  <title>Tower Defense</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <div id="overlay" class="menu">
-    <h1>Polished Tower Defense</h1>
+    <h1>Tower Defense (still thinking of a name)</h1>
     <div class="menu-controls">
       <label><input type="checkbox" id="endlessToggle"> Endless Mode</label>
-      <button id="startBtn" class="primary">Start Game</button>
+      <div class="menu-row">
+        <button id="startBtn" class="primary">Start Game</button>
+        <button id="tutorialBtn" class="btn">How to Play</button>
+      </div>
     </div>
-    <p class="muted">Double-click the map to place a selected tower. Click towers to upgrade.</p>
+    <div class="muted small">Double-click to place selected tower. Single-click tower to open upgrades. Press <b>Next
+        Wave</b> to start waves (unless Endless).</div>
   </div>
 
-  <div id="hud">
+  <div id="topbar">
     <div class="left">
       <div class="stat">Money: <span id="money">150</span></div>
       <div class="stat">Lives: <span id="lives">10</span></div>
@@ -27,12 +31,17 @@
     <div class="center">
       <button id="nextWave" class="btn">Next Wave</button>
       <button id="pauseBtn" class="btn">Pause</button>
+      <div id="statusMsg" class="small muted"></div>
     </div>
     <div class="right">
       <div class="tower-buttons">
         <button class="tower-select btn" data-type="basic" id="tbasic">Basic<br><span class="small">50</span></button>
         <button class="tower-select btn" data-type="rapid" id="trapid">Rapid<br><span class="small">80</span></button>
-        <button class="tower-select btn" data-type="slow" id="tslow">Slow<br><span class="small">90</span></button>
+        <button class="tower-select btn" data-type="sniper" id="tsniper">Sniper<br><span
+            class="small">90</span></button>
+        <button class="tower-select btn" data-type="freeze" id="tfreeze">Freeze<br><span
+            class="small">100</span></button>
+        <button class="tower-select btn" data-type="buff" id="tbuff">Buff<br><span class="small">120</span></button>
       </div>
       <div class="small muted" id="modeLabel">Mode: Standard</div>
     </div>
@@ -44,10 +53,11 @@
     <h3>Tower</h3>
     <div>Type: <span id="panelType"></span></div>
     <div>Level: <span id="panelLevel">1</span></div>
-    <div>Range: <span id="panelRange"></span></div>
-    <div>Damage: <span id="panelDamage"></span></div>
+    <div>Upper Path (Offense): <span id="upperLevel">0</span></div>
+    <div>Lower Path (Utility): <span id="lowerLevel">0</span></div>
     <div class="panel-actions">
-      <button id="upgradeBtn" class="btn">Upgrade (cost: <span id="upgradeCost">50</span>)</button>
+      <button id="upgradeUpper" class="btn">Upgrade Upper (<span id="upCost">50</span>)</button>
+      <button id="upgradeLower" class="btn">Upgrade Lower (<span id="lowCost">50</span>)</button>
       <button id="sellBtn" class="btn">Sell</button>
     </div>
   </div>
